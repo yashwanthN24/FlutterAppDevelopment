@@ -3,11 +3,20 @@ import 'package:flutter/material.dart'; // this packagte only provides runApp fu
 // main.dart file is the entry point of every flutter app
 
 // For runApp() we must pass the widget tree
+
+// import the file containing the custom widget
+
+// using syntax import 'package/<project_name>/widgetname(the filename)'
+import 'package:fresh_app/gradiant_container.dart';
+
 void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        body: GradientContainer(),
+        body: GradientContainer(
+          Color.fromARGB(255, 33, 5, 109),
+          Color.fromARGB(255, 68, 21, 149),
+        ),
       ),
     ),
   );
@@ -26,30 +35,9 @@ StatelessWidget is a abstract class so we must implement all its  abstract metho
 
 that method is build (this method is called automatically by flutter when this widget is called and this must return the widget tree we want to create)
 
-*/
+Its a good practice to place each widget into its own file with name of the file being the same as widget name
 
-class GradientContainer extends StatelessWidget {
-  Widget build(context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 26, 2, 80),
-            Color.fromARGB(255, 45, 7, 98),
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: const Center(
-        child: Text(
-          'Hello World!',
-          style: TextStyle(fontSize: 28, color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
+*/
 
 /*
 
