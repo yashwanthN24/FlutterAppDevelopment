@@ -7,27 +7,48 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 26, 2, 80),
-                Color.fromARGB(255, 45, 7, 98),
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: const Center(
-            child: Text(
-              'Hello World!',
-              style: TextStyle(fontSize: 28, color: Colors.white),
-            ),
-          ),
-        ),
+        body: GradientContainer(),
       ),
     ),
   );
+}
+
+/*
+
+Building custom widgets 
+
+- widgets are just objects created from classes 
+= custom widget are just a combination of inbuildt widget grouped together for resuing acorss ultiple laces 
+
+to create a widget we must extend StatelessWidget class
+
+StatelessWidget is a abstract class so we must implement all its  abstract methods i.e methods having no body 
+
+that method is build (this method is called automatically by flutter when this widget is called and this must return the widget tree we want to create)
+
+*/
+
+class GradientContainer extends StatelessWidget {
+  Widget build(context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 26, 2, 80),
+            Color.fromARGB(255, 45, 7, 98),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: const Center(
+        child: Text(
+          'Hello World!',
+          style: TextStyle(fontSize: 28, color: Colors.white),
+        ),
+      ),
+    );
+  }
 }
 
 /*
