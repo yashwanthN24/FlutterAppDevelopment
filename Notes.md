@@ -114,3 +114,55 @@ Especially when inserting more complex values (e.g., a widget with multiple para
 
 
 https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
+
+
+## if statements & comparison operators 
+
+if Statements & Comparison Operators
+When using if statements - no matter if inside or outside of functions - as well as when using ternary expressions, you ultimately must provide a boolean value (true / false):
+
+if (true) {
+  // do something ...
+}
+
+// or
+
+true ? 'this' : 'that'
+
+Of course, hardcoding true or false into the code makes no sense though - you wouldn't need an if statement or ternary expression if a value would always be true or always be false.
+
+Instead, true or false is typically derived by comparing values - e.g, comparing a number to an expected value:
+
+if (randomNumber == 5) {
+  // do something
+}
+
+The == operator checks for value equality (i.e., the values on the left and right side of the operator must be equal). It must not be mistaken with the assignment operator (which uses a single equal sign: =).
+
+The assignment operator is used to assign values to variables:
+
+var userName = 'Max'; // assignment operator used
+if (userName == 'Max') { ... } // comparison operator used
+
+Besides the equality operator (==) Dart also supports many other key comparison operators:
+
+!= to check for inequality (randomNumber != 5 expects randomNumber to NOT be 5, i.e., to be any other value)
+
+> to check for the value on the left to be greater than the value on the right (randomNumber > 5 yields true if randomNumber is greater than 5)
+
+>= to check for the value on the left to be greater than or equal to the value on the right (randomNumber >= 5 yields true if randomNumber is greater than 5 or equals 5)
+
+< to check for the value on the left to be smaller than the value on the right (randomNumber < 5 yields true if randomNumber is smaller than 5)
+
+<= to check for the value on the left to be smaller than or equal to the value on the right (randomNumber <= 5 yields true if randomNumber is smaller than 5 or equals 5)
+
+
+
+## installing thrid party package 
+
+- for most of the things we use thrid party code published via packages available in pub.dev 
+- Example using google_fonts package from pub.dev to usegooglefonts in flutter app 
+
+- flutter pub add <packagename> (to add a third party )
+- then import it and start using it as per its manuel or documentation 
+- 
