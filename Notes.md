@@ -49,3 +49,8 @@ linter:
 ```
 
 
+## Creating custom widget 
+
+1) if you dont have any internal data that changes the UI extend StatelessWidget
+
+2) if you internal data that changes the UI extend StatefulWidget and create a private class with same name as the widget class appended by the name State i.e (YourWidgetNameState) but with an underscore (_) in front of it and extend State<YourWidgetNameState>.
