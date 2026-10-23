@@ -54,3 +54,22 @@ linter:
 1) if you dont have any internal data that changes the UI extend StatelessWidget
 
 2) if you internal data that changes the UI extend StatefulWidget and create a private class with same name as the widget class appended by the name State i.e (YourWidgetNameState) but with an underscore (_) in front of it and extend State<YourWidgetNameState>.
+
+
+## Lifting the stateup 
+
+- one common widget renders multiple screens based on conditinal widget rendered. In this case, the state of the widget is lifted up to the parent widget and passed down to the child widgets as a parameter.
+
+
+## StatefulWidget LifeCycle
+
+Deep Dive: Flutter's (Stateful) Widget Lifecycle
+Every Flutter Widget has a built-in lifecycle: A collection of methods that are automatically executed by Flutter (at certain points of time).
+
+There are three extremely important (stateful) widget lifecycle methods you should be aware of:
+
+initState(): Executed by Flutter when the StatefulWidget's State object is initialized
+
+build(): Executed by Flutter when the Widget is built for the first time AND after setState() was called
+
+dispose(): Executed by Flutter right before the Widget will be deleted (e.g., because it was displayed conditionally)
