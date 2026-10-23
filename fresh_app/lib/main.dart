@@ -9,6 +9,16 @@ import 'package:flutter/material.dart'; // this packagte only provides runApp fu
 // using syntax import 'package/<project_name>/widgetname(the filename)'
 import 'package:fresh_app/gradiant_container.dart';
 
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       home: Scaffold(
+//         body: GradientContainer.purple(),
+//       ),
+//     ),
+//   );
+// }
+
 void main() {
   runApp(
     MaterialApp(
