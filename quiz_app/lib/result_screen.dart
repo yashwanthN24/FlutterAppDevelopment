@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questionsSummery/questions_summery.dart';
 
+// import 'package:quiz_app/questionsSummery/questions_summery.dart';
+
 class ResultScreen extends StatelessWidget {
   const ResultScreen({
     super.key,
@@ -40,7 +42,7 @@ class ResultScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -48,8 +50,8 @@ class ResultScreen extends StatelessWidget {
             Text(
               'You answered ${numberOfCorrectAnswers} out of $numberOfQuestions Questions',
               style: GoogleFonts.lato(
-                color: const Color.fromARGB(255, 201, 153, 251),
-                fontSize: 24,
+                color: const Color.fromARGB(255, 230, 200, 253),
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
               // style: GoogleFonts.abel(
@@ -61,9 +63,14 @@ class ResultScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            QuestionsSummery(summery),
+            QuestionsSummary(summery),
             const SizedBox(height: 30),
-            TextButton(onPressed: onRestart, child: Text('Restart Quiz!')),
+            TextButton.icon(
+              onPressed: onRestart,
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
+              icon: const Icon(Icons.refresh),
+              label: const Text('Restart Quiz!'),
+            ),
           ],
         ),
       ),
