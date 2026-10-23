@@ -12,21 +12,20 @@ To do that, edit (if they file already exists) or add a new file analysis_option
 On the outermost indentation level, add the following configuration:
 
 ```yaml
-
 # This file configures the analyzer, which statically analyzes Dart code to
 # check for errors, warnings, and lints.
 #
 # The issues identified by the analyzer are surfaced in the UI of Dart-enabled
 # IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
 # invoked from the command line by running `flutter analyze`.
- 
+
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
- 
-formatter: 
+
+formatter:
   trailing_commas: preserve
- 
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -41,25 +40,21 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
- 
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
 
-
 ```
 
+## Creating custom widget
 
-## Creating custom widget 
+1. if you dont have any internal data that changes the UI extend StatelessWidget
 
-1) if you dont have any internal data that changes the UI extend StatelessWidget
+2. if you internal data that changes the UI extend StatefulWidget and create a private class with same name as the widget class appended by the name State i.e (YourWidgetNameState) but with an underscore (\_) in front of it and extend State<YourWidgetNameState>.
 
-2) if you internal data that changes the UI extend StatefulWidget and create a private class with same name as the widget class appended by the name State i.e (YourWidgetNameState) but with an underscore (_) in front of it and extend State<YourWidgetNameState>.
-
-
-## Lifting the stateup 
+## Lifting the stateup
 
 - one common widget renders multiple screens based on conditinal widget rendered. In this case, the state of the widget is lifted up to the parent widget and passed down to the child widgets as a parameter.
-
 
 ## StatefulWidget LifeCycle
 
@@ -74,7 +69,7 @@ build(): Executed by Flutter when the Widget is built for the first time AND aft
 
 dispose(): Executed by Flutter right before the Widget will be deleted (e.g., because it was displayed conditionally)
 
-## if in lists 
+## if in lists
 
 Using "if" Statements In Lists
 The if statement is a crucial feature of the Dart language - actually, it's a core feature of pretty much all programming languages.
@@ -82,10 +77,10 @@ The if statement is a crucial feature of the Dart language - actually, it's a co
 In addition to what you learned in the previous lecture, in Dart, you may also use if inside of lists to conditionally add items to lists:
 
 final myList = [
-  1,
-  2,
-  if (condition)
-    3
+1,
+2,
+if (condition)
+3
 ];
 In this example, the number 3 will only be added to myList if condition was met (condition can be true or false or a check that yields true or false - e.g., day == 'Sunday').
 
@@ -94,35 +89,31 @@ Please note that there are NO curly braces around the if statement body. The if 
 You can also specify an else case - an alternative value that may be inserted into the list if condition is not met:
 
 final myList = [
-  1,
-  2,
-  if (condition)
-    3
-  else
-    4
+1,
+2,
+if (condition)
+3
+else
+4
 ];
 Using this feature is optional. Alternatively, you could, for example, also work with a ternary expression:
 
 final myList = [
-  1,
-  2,
-  condition ? 3 : 4
+1,
+2,
+condition ? 3 : 4
 ];
 Especially when inserting more complex values (e.g., a widget with multiple parameters being set) into a more complex list (e.g., a list of widgets passed to a Column() or Row()), this feature can lead to more readable code.
 
-
-
-
 https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
 
-
-## if statements & comparison operators 
+## if statements & comparison operators
 
 if Statements & Comparison Operators
 When using if statements - no matter if inside or outside of functions - as well as when using ternary expressions, you ultimately must provide a boolean value (true / false):
 
 if (true) {
-  // do something ...
+// do something ...
 }
 
 // or
@@ -134,7 +125,7 @@ Of course, hardcoding true or false into the code makes no sense though - you wo
 Instead, true or false is typically derived by comparing values - e.g, comparing a number to an expected value:
 
 if (randomNumber == 5) {
-  // do something
+// do something
 }
 
 The == operator checks for value equality (i.e., the values on the left and right side of the operator must be equal). It must not be mistaken with the assignment operator (which uses a single equal sign: =).
@@ -150,19 +141,65 @@ Besides the equality operator (==) Dart also supports many other key comparison 
 
 > to check for the value on the left to be greater than the value on the right (randomNumber > 5 yields true if randomNumber is greater than 5)
 
->= to check for the value on the left to be greater than or equal to the value on the right (randomNumber >= 5 yields true if randomNumber is greater than 5 or equals 5)
+> = to check for the value on the left to be greater than or equal to the value on the right (randomNumber >= 5 yields true if randomNumber is greater than 5 or equals 5)
 
 < to check for the value on the left to be smaller than the value on the right (randomNumber < 5 yields true if randomNumber is smaller than 5)
 
 <= to check for the value on the left to be smaller than or equal to the value on the right (randomNumber <= 5 yields true if randomNumber is smaller than 5 or equals 5)
 
+## installing thrid party package
 
-
-## installing thrid party package 
-
-- for most of the things we use thrid party code published via packages available in pub.dev 
-- Example using google_fonts package from pub.dev to usegooglefonts in flutter app 
+- for most of the things we use thrid party code published via packages available in pub.dev
+- Example using google_fonts package from pub.dev to usegooglefonts in flutter app
 
 - flutter pub add <packagename> (to add a third party )
-- then import it and start using it as per its manuel or documentation 
-- 
+- then import it and start using it as per its manuel or documentation
+
+## Using for loops in lists
+
+Using "for" Loops In Lists
+Just as you can also use the if keyword inside of lists (to add elements conditionally), you can also use the for keyword to add multiple items into a list:
+
+final numbers = [5, 6];
+final myList = [
+1,
+2,
+for (final num in numbers)
+num
+];
+In this example, the numbers 5 and 6 will be added to myList (hence myList thereafter is [1, 2, 5, 6]).
+
+This for ... in syntax is a special variation of the for loop that loops through multiple items in a list. You will see it again later in the course - both outside and inside of a list. It will also be explained again later.
+
+The idea behind this loop is to simplify the process of performing some operation on all items in a list.
+
+When used in a list, it's essentially an alternative to the spread operator (...):
+
+final numbers = [5, 6];
+final myList = [
+1,
+2,
+...numbers
+];
+It can be useful in scenarios where values must be transformed before being added to a list - the for ... in loop can then be used instead of map() + spread operator:
+
+final numbers = [5, 6];
+final myList = [
+1,
+2,
+...numbers.map((n) {
+return n * 2;
+}) // adds 10 and 12
+];
+can be replaced with:
+
+final numbers = [5, 6];
+final myList = [
+1,
+2,
+for (final num in numbers)
+num * 2 // adds 10 and 12
+];
+As mentioned, you will learn more about for later in the course.
+
+You can also learn more about for ... in inside of lists here: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md#repetition
