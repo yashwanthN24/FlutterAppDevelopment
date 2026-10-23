@@ -73,3 +73,44 @@ initState(): Executed by Flutter when the StatefulWidget's State object is initi
 build(): Executed by Flutter when the Widget is built for the first time AND after setState() was called
 
 dispose(): Executed by Flutter right before the Widget will be deleted (e.g., because it was displayed conditionally)
+
+## if in lists 
+
+Using "if" Statements In Lists
+The if statement is a crucial feature of the Dart language - actually, it's a core feature of pretty much all programming languages.
+
+In addition to what you learned in the previous lecture, in Dart, you may also use if inside of lists to conditionally add items to lists:
+
+final myList = [
+  1,
+  2,
+  if (condition)
+    3
+];
+In this example, the number 3 will only be added to myList if condition was met (condition can be true or false or a check that yields true or false - e.g., day == 'Sunday').
+
+Please note that there are NO curly braces around the if statement body. The if statement body also only comprises the next line of code (i.e., you can't have multiple lines of code inside the if statement).
+
+You can also specify an else case - an alternative value that may be inserted into the list if condition is not met:
+
+final myList = [
+  1,
+  2,
+  if (condition)
+    3
+  else
+    4
+];
+Using this feature is optional. Alternatively, you could, for example, also work with a ternary expression:
+
+final myList = [
+  1,
+  2,
+  condition ? 3 : 4
+];
+Especially when inserting more complex values (e.g., a widget with multiple parameters being set) into a more complex list (e.g., a list of widgets passed to a Column() or Row()), this feature can lead to more readable code.
+
+
+
+
+https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md
