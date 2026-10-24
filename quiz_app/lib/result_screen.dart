@@ -34,9 +34,9 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var summery = getSummery();
     var numberOfQuestions = questions.length;
-    var numberOfCorrectAnswers = summery.where((data) {
-      return data['user_answer'] == data['correct_answer'];
-    }).length;
+    var numberOfCorrectAnswers = summery
+        .where((data) => data['user_answer'] == data['correct_answer'])
+        .length;
 
     print(chosenAnswers);
     return SizedBox(

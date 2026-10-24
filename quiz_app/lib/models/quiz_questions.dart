@@ -4,7 +4,7 @@ class QuizQuestion {
   final String question;
   final List<String> answers;
 
-  List<String> getShuffledanswers() {
+  List<String> get getShuffledanswers {
     final List<String> shuffled = List.of(answers);
     shuffled.shuffle(); // shuffles the list in place  
     // final means cantassign a new list but can modify existing list 

@@ -19,7 +19,7 @@ class _QuestionState extends State<Question> {
 
   void answerQuestion(String answer) {
     widget.onAnswerTap(answer);
-    
+
     setState(() {
       currentQuestionIndex++;
     });
@@ -52,7 +52,7 @@ class _QuestionState extends State<Question> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 30),
-            ...currentQuestion.getShuffledanswers().map((String item) {
+            ...currentQuestion.getShuffledanswers.map((String item) {
               return Answerbutton(
                 answer: item,
                 onTap: () {
