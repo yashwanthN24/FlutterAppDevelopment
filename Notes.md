@@ -203,3 +203,21 @@ num * 2 // adds 10 and 12
 As mentioned, you will learn more about for later in the course.
 
 You can also learn more about for ... in inside of lists here: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md#repetition
+
+
+## Running app on real device 
+
+https://docs.flutter.dev/platform-integration/android/setup#set-up-devices
+
+
+## debugging flutter apps 
+
+1) Run tab in vscode Run without debugging see debu console and resolve based on stack trace 
+
+
+2) Run tab vscode Run start debugging add breakpoints and debug (this slows your app use only while trying to fix bug)
+
+3) flutter devtools vscode command palete (Ctrl + shit + p)  -> flutter devtools -> open devtools in web browser -> use ZFlutter lyaourt and debugger more helpful
+
+
+1) is generally enough to run flutter in development mode
