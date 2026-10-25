@@ -13,8 +13,8 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 );
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); 
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // WidgetsFlutterBinding.ensureInitialized(); 
+  // await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   // Above code to lock the orientation of app to run only in portrait mode even if user rotates the phone
   runApp(
