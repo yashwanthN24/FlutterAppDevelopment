@@ -43,7 +43,6 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
-
 ```
 
 ## Creating custom widget
@@ -204,20 +203,56 @@ As mentioned, you will learn more about for later in the course.
 
 You can also learn more about for ... in inside of lists here: https://github.com/dart-lang/language/blob/master/accepted/2.3/control-flow-collections/feature-specification.md#repetition
 
-
-## Running app on real device 
+## Running app on real device
 
 https://docs.flutter.dev/platform-integration/android/setup#set-up-devices
 
+## debugging flutter apps
 
-## debugging flutter apps 
+1. Run tab in vscode Run without debugging see debu console and resolve based on stack trace
 
-1) Run tab in vscode Run without debugging see debu console and resolve based on stack trace 
+2. Run tab vscode Run start debugging add breakpoints and debug (this slows your app use only while trying to fix bug)
 
+3. flutter devtools vscode command palete (Ctrl + shit + p) -> flutter devtools -> open devtools in web browser -> use ZFlutter lyaourt and debugger more helpful
 
-2) Run tab vscode Run start debugging add breakpoints and debug (this slows your app use only while trying to fix bug)
+1 is generally enough to run flutter in development mode
 
-3) flutter devtools vscode command palete (Ctrl + shit + p)  -> flutter devtools -> open devtools in web browser -> use ZFlutter lyaourt and debugger more helpful
+## SnackBar (Like toast messages in websites )
 
+One important change with the latest version of Flutter - to have it disappear automatically, add `persist: false` to the SnackBar widget
 
-1) is generally enough to run flutter in development mode
+## Flutter and Material3 Design
+
+Flutter & Material 3
+If you're working with a recent version of Flutter, it will automatically use the "Material 3" look and settings.
+
+I recorded this course with Material 3 BUT at the time where I did record it, this mode had to be enabled manually by setting useMaterial3 to true when working with themes.
+
+You'll see that in the next lectures.
+
+Since Material 3 is the default now, useMaterial3 no longer needs to be set to true, hence you can and should skip that setting. The rest of the code shown in the lectures remains unchanged though.
+
+## dark mode
+
+Important: Adding Dark Mode
+In the next lecture, we'll add "Dark Mode" to the app.
+
+The code you'll see in the next lecture works as shown, with one important exception (that you should adjust in your code):
+
+The useMaterial3: true flag is no longer needed if you're using the latest version of Flutter - because Material 3 is already the default with that.
+
+In addition, instead of adding a dark theme like this:
+
+ThemeData.dark(
+useMaterial3: true,
+colorScheme: kColorScheme,
+cardTheme: ...
+)
+you should add it like this (in the next lecture, when we write that code):
+
+ThemeData.dark().copyWith( // dark() no longer takes any arguments
+useMaterial3: true,
+colorScheme: kColorScheme,
+cardTheme: ...
+)
+That's all!
