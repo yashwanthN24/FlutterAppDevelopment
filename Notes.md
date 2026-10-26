@@ -292,6 +292,23 @@ https://pub.dev/packages?q=topic%3Astate-management
 
 https://docs.flutter.dev/data-and-backend/state-mgmt/options
 
+## Connecting to backend and interacting with backend via flutter apps 
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+
+The difference between using await and not using it comes down to what your code does next:
+
+With await: Your code pauses execution inside that specific function until the network response comes back, keeping everything else free to run in the meantime.
+
+Without await (Fire-and-Forget): Your code keeps racing forward immediately on the next line, while the delete request happens completely independently in the background.
+
+As long as you're okay with not knowing the exact moment it finishes (and have a .catchError() just in case it fails), it won't freeze your app at all.
+
+
+
 ##
 
 shared_preference package or sqlite (to store data on the users device)
