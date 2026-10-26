@@ -257,7 +257,6 @@ cardTheme: ...
 )
 That's all!
 
-
 ![alt text](image.png)
 
 ![alt text](image-1.png)
@@ -265,3 +264,60 @@ That's all!
 ![alt text](image-2.png)
 
 ![alt text](image-3.png)
+
+## Cross-widget state management
+
+Riverpod instead of old providers packeg or the normal lifting the state up to the parent widget and passing it down to the child widgets as a parameter.( same issue as prop drilling in react)
+
+Riverpod Versions
+This course was recorded based on Riverpod versions <3.
+
+If you're working with more recent versions in your project, you will need to import certain classes like StateProvider from the legacy.dart file like this:
+
+import 'package:flutter_riverpod/legacy.dart';
+
+![alt text](image-4.png)
+
+Older versions of this course used the "provider" package instead of "riverpod" for app-wide state management.
+
+riverpod is a library created by the same developer as the provider library - it's essentially a re-write of the provider package, fixing many of the flaws of that library (also see: https://github.com/rrousselGit/riverpod).
+
+That's why this course uses riverpod.
+
+As mentioned in the section, there generally are many other alternative packages you could use instead - for example Redux or Bloc. This page from the official documentation gives you a good overview of available packages - definitely feel free to play around with them and find the package your personally like most.
+
+https://docs.flutter.dev/data-and-backend/state-mgmt/simple
+
+https://pub.dev/packages?q=topic%3Astate-management
+
+https://docs.flutter.dev/data-and-backend/state-mgmt/options
+
+##
+
+shared_preference package or sqlite (to store data on the users device)
+
+path_provider to deal with files and directories on the users device
+
+image-picker (for camera access) or location (to get user location ) or GoogleMaps to integrate js google map api and show map via google console api
+
+## Using native device features
+
+Adding Your Own Native Code
+With Flutter, when using native device features, you'll very likely use external packages most of the time - like the ImagePicker (for camera) or location (to get user location ) or GoogleMaps packages used in this section.
+
+But if you need to tap into a certain native device functionality that's not exposed by any package, you can also write your own native code and connect that to your Flutter code.
+
+It's a rarely needed feature but this page from the official documentation explains how you could add your own native code: https://docs.flutter.dev/development/platform-integration/platform-channels
+
+## Publishing ios and Android Apps
+
+Publishing iOS & Android Apps
+Ultimately, after building and thoroughly testing your Flutter app, you might want to publish it to Google's Play Store or Apple's AppStore.
+
+Publishing to these stores is actually not really difficult but involves a couple of steps. Hence it's best to go through the official, written, step-by-step instructions for the different platforms:
+
+Publish an Android App: https://docs.flutter.dev/deployment/android
+
+Publish an iOS App: https://docs.flutter.dev/deployment/ios
+
+In those guides, you don't just learn how to publish your apps but also how to configure their icons, titles & more useful settings.
