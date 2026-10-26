@@ -292,12 +292,11 @@ https://pub.dev/packages?q=topic%3Astate-management
 
 https://docs.flutter.dev/data-and-backend/state-mgmt/options
 
-## Connecting to backend and interacting with backend via flutter apps 
+## Connecting to backend and interacting with backend via flutter apps
 
 ![alt text](image-5.png)
 
 ![alt text](image-6.png)
-
 
 The difference between using await and not using it comes down to what your code does next:
 
@@ -306,8 +305,6 @@ With await: Your code pauses execution inside that specific function until the n
 Without await (Fire-and-Forget): Your code keeps racing forward immediately on the next line, while the delete request happens completely independently in the background.
 
 As long as you're okay with not knowing the exact moment it finishes (and have a .catchError() just in case it fails), it won't freeze your app at all.
-
-
 
 ##
 
@@ -338,3 +335,9 @@ Publish an Android App: https://docs.flutter.dev/deployment/android
 Publish an iOS App: https://docs.flutter.dev/deployment/ios
 
 In those guides, you don't just learn how to publish your apps but also how to configure their icons, titles & more useful settings.
+
+## official docs for further learning
+
+https://docs.flutter.dev/ui/widgets
+
+https://docs.flutter.dev
