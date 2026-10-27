@@ -341,3 +341,123 @@ In those guides, you don't just learn how to publish your apps but also how to c
 https://docs.flutter.dev/ui/widgets
 
 https://docs.flutter.dev
+
+## useful flutter packages
+
+1. flutter_riverPod - Global cross-widget state management in you app juts Like Redux toolkit for react app
+
+https://pub.dev/packages/riverpod
+
+https://pub.dev/documentation/riverpod/latest/index.html
+
+https://riverpod.dev/
+
+2. flutter_bloc - Another useful global state management used in flutter but prefer riverpod itself its more closer to reduxtoolkit in react and is directly built on flutters provider
+   so its modern approach to state management
+
+https://pub.dev/packages/bloc
+
+https://bloclibrary.dev/
+
+https://pub.dev/documentation/bloc/latest/
+
+3. dio - while http package is used to handle http requests in flutter app http package is like fetch in js ecosystem where we have to handle the processing the response and errors manually but dio is like axios in js ecosystem where it handles the response and errors automatically and also has many other features like interceptors, request cancellation, file upload/download , timeout and retries and converts json to dart objects automatically and many more features.
+
+Exactly. You nailed the analogy perfectly.
+• dio is Axios: It gives you automatic JSON parsing, request interceptors, global configurations, and native cancel tokens right out of the box.
+• http is fetch: It is the lean, native-feeling browser standard that gives you raw control but requires you to write your own boilerplate for interceptors, timeouts, and JSON decoding.
+Just like in the JavaScript ecosystem, developers who want to avoid external dependencies or keep their bundle tiny choose fetch (http), while developers building enterprise apps with complex auth-refresh flows and heavy API interactions grab Axios (dio) to save time.
+
+https://pub.dev/packages/dio
+
+4. GoRouter - now currently we have been using the imperative approach to routing to different screen using Navigator.of(context).push() but GoRouter is a declarative approach to routing in flutter app and is more closer to react-router-dom in react ecosystem.
+
+5. flutter_secure_storage - to store sensitive data like tokens and passwords in flutter app securely
+
+6. shared_preferences - to store non-sensitive data like user preferences in flutter app
+
+## Component libraries like shadcn for react/nextjs in flutter ecosystem
+
+- To get ready made components to focus more on functionality rather than building UI we can use ready made design systems via component libraries
+
+- for Flutter use :
+
+1. shadcn_flutter
+
+- Provides ready made components for you you can just paste them as widget and start using them in your flutter app
+
+https://sunarya-thito.github.io/shadcn_flutter/
+
+https://pub.dev/packages/shadcn_flutter
+
+https://github.com/sunarya-thito/shadcn_flutter
+
+2. forui
+
+https://pub.dev/packages/forui
+
+https://pub.dev/documentation/forui/latest/
+
+https://forui.dev/
+
+https://forui.dev/docs/widgets/form/otp-field
+
+3. getWidget
+
+https://pub.dev/packages/getwidget
+
+4. fluent_ui
+
+https://pub.dev/packages/fluent_ui
+
+5. macos_ui
+
+https://pub.dev/packages/macos_ui
+
+6. flutter_moon_design
+
+https://flutter.moon.io/
+
+## other useful packages simple
+
+1. Fl_chart - for charts and graphs in flutter app
+
+https://pub.dev/packages/fl_chart
+
+2. lottie - for lottie animations in flutter app
+
+https://pub.dev/packages/lottie
+
+3. lucide icons
+
+https://pub.dev/packages/lucide_icons_flutter
+
+4. flutter_map - for maps in flutter app
+
+https://pub.dev/packages/flutter_map
+
+5. Table calendar - for calendar in flutter app
+
+https://pub.dev/packages/table_calendar
+
+6. data_table_2 - for advanced tables
+
+https://pub.dev/packages/data_table_2
+
+7. image picker - for image selection via camera , gallery and filemanager
+
+https://pub.dev/packages/image_picker
+
+8. flutter_quill - for embeding text editor inside mobile app
+
+https://pub.dev/packages/flutter_quill
+
+https://pub.dev/documentation/flutter_quill/latest/
+
+https://github.com/singerdmx/flutter-quill/
+
+## Useful tool
+
+Flutter flow is a useful no-code /lowcode tool that is used to buildflutter apps through drag and drop UI compnents
+
+https://www.flutterflow.io/
