@@ -20,7 +20,6 @@ void main() async {
   runApp(
     MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
-        useMaterial3: true,
         colorScheme: kDarkColorScheme,
         cardTheme: const CardThemeData().copyWith(
           color: kDarkColorScheme.secondaryContainer,
@@ -28,7 +27,6 @@ void main() async {
         ),
       ),
       theme: ThemeData().copyWith(
-        useMaterial3: true,
         scaffoldBackgroundColor: Color.fromARGB(255, 220, 189, 252),
         colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme().copyWith(

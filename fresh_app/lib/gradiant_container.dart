@@ -6,10 +6,10 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  GradientContainer(this.color1, this.color2, {super.key});
+  const GradientContainer(this.color1, this.color2, {super.key});
 
   // secod contructor other way to invoke this widget
-  GradientContainer.purple({super.key})
+  const GradientContainer.purple({super.key})
     : color1 = Colors.pink,
       color2 = Colors.red;
   final Color color1;
