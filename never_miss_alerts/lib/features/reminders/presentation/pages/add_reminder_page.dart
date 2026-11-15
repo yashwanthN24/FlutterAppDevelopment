@@ -16,6 +16,10 @@ class _AddReminderPageState extends State<AddReminderPage> {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _selectedTime = TimeOfDay.now();
 
+  ReminderRepeat _selectedRepeat = ReminderRepeat.none;
+
+  static const Color primaryColor = Color(0xFF635BFF);
+
   @override
   void dispose() {
     _titleController.dispose();
@@ -26,7 +30,9 @@ class _AddReminderPageState extends State<AddReminderPage> {
   Future<void> _pickDate() async {
     final date = await showDatePicker(
       context: context,
-      initialDate: _selectedDate,
+      initialDate: _selectedDate.isBefore(DateTime.now())
+          ? DateTime.now()
+          : _selectedDate,
       firstDate: DateTime.now(),
       lastDate: DateTime(2100),
     );
@@ -73,6 +79,13 @@ class _AddReminderPageState extends State<AddReminderPage> {
       title: title,
       description: _descriptionController.text.trim(),
       scheduledAt: scheduledAt,
+      repeat: _selectedRepeat,
+      repeatWeekday: _selectedRepeat == ReminderRepeat.weekly
+          ? scheduledAt.weekday
+          : null,
+      repeatDayOfMonth: _selectedRepeat == ReminderRepeat.monthly
+          ? scheduledAt.day
+          : null,
     );
 
     Navigator.pop(context, reminder);
@@ -81,6 +94,54 @@ class _AddReminderPageState extends State<AddReminderPage> {
   void _showError(String message) {
     ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  String _repeatDescription() {
+    switch (_selectedRepeat) {
+      case ReminderRepeat.none:
+        return 'This reminder will ring only once.';
+      case ReminderRepeat.daily:
+        return 'Repeats every day at the selected time.';
+      case ReminderRepeat.weekdays:
+        return 'Repeats Monday through Friday.';
+      case ReminderRepeat.weekends:
+        return 'Repeats every Saturday and Sunday.';
+      case ReminderRepeat.weekly:
+        return 'Repeats every ${_weekdayName(_selectedDate.weekday)}.';
+      case ReminderRepeat.monthly:
+        return 'Repeats on day ${_selectedDate.day} of each month.';
+    }
+  }
+
+  String _weekdayName(int weekday) {
+    const days = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ];
+
+    return days[weekday - 1];
+  }
+
+  String _repeatLabel(ReminderRepeat repeat) {
+    switch (repeat) {
+      case ReminderRepeat.none:
+        return 'Never';
+      case ReminderRepeat.daily:
+        return 'Daily';
+      case ReminderRepeat.weekdays:
+        return 'Weekdays';
+      case ReminderRepeat.weekends:
+        return 'Weekends';
+      case ReminderRepeat.weekly:
+        return 'Weekly';
+      case ReminderRepeat.monthly:
+        return 'Monthly';
+    }
   }
 
   @override
@@ -101,19 +162,15 @@ class _AddReminderPageState extends State<AddReminderPage> {
               'What do you need to remember?',
               style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
             ),
-
             const SizedBox(height: 8),
-
             Text(
               'We will make sure you never miss it.',
               style: TextStyle(color: Colors.grey.shade600),
             ),
-
             const SizedBox(height: 32),
 
             _sectionLabel('REMINDER TITLE'),
             const SizedBox(height: 10),
-
             TextField(
               controller: _titleController,
               autofocus: true,
@@ -127,7 +184,6 @@ class _AddReminderPageState extends State<AddReminderPage> {
 
             _sectionLabel('DESCRIPTION (OPTIONAL)'),
             const SizedBox(height: 10),
-
             TextField(
               controller: _descriptionController,
               maxLines: 3,
@@ -165,6 +221,65 @@ class _AddReminderPageState extends State<AddReminderPage> {
               ],
             ),
 
+            const SizedBox(height: 32),
+
+            _sectionLabel('REPEAT'),
+            const SizedBox(height: 12),
+
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: ReminderRepeat.values.map((repeat) {
+                final selected = _selectedRepeat == repeat;
+
+                return ChoiceChip(
+                  label: Text(_repeatLabel(repeat)),
+                  selected: selected,
+                  onSelected: (_) {
+                    setState(() => _selectedRepeat = repeat);
+                  },
+                  selectedColor: primaryColor.withValues(alpha: 0.15),
+                  checkmarkColor: primaryColor,
+                  labelStyle: TextStyle(
+                    color: selected ? primaryColor : Colors.black87,
+                    fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                  ),
+                  side: BorderSide(
+                    color: selected ? primaryColor : Colors.grey.shade300,
+                  ),
+                  backgroundColor: Colors.white,
+                );
+              }).toList(),
+            ),
+
+            const SizedBox(height: 12),
+
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: primaryColor.withValues(alpha: 0.07),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.info_outline_rounded,
+                    color: primaryColor,
+                    size: 20,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      _repeatDescription(),
+                      style: const TextStyle(fontSize: 13),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
             const SizedBox(height: 40),
 
             SizedBox(
@@ -178,7 +293,7 @@ class _AddReminderPageState extends State<AddReminderPage> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF635BFF),
+                  backgroundColor: primaryColor,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
@@ -240,7 +355,7 @@ class _AddReminderPageState extends State<AddReminderPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, color: const Color(0xFF635BFF)),
+            Icon(icon, color: primaryColor),
             const SizedBox(height: 12),
             Text(
               label,
